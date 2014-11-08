@@ -5,6 +5,8 @@ HackIndependence::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
+  get '/auth/:provider/callback', to: 'sessions#create'
+
   resources :imports
   resources :exports
   # Example of regular route:

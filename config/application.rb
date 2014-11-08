@@ -21,5 +21,8 @@ module HackIndependence
     # config.i18n.default_locale = :de
 
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
+
+    p "Test " + ENV["SPOTIFY_CLIENT_ID"]
+    RSpotify::authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_CLIENT_SECRET"])
   end
 end
