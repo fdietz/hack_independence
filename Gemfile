@@ -31,6 +31,7 @@ gem 'foundation-rails'
 
 gem 'omniauth', '~> 1.2.2'
 gem 'rspotify'
+gem 'omniauth-rdio-oauth2'
 
 group :development do
   gem "better_errors"
