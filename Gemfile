@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'foundation-rails'
 
+
 gem 'omniauth', '~> 1.2.2'
 gem 'rspotify'
 gem 'omniauth-rdio'
@@ -36,6 +37,7 @@ gem 'omniauth-rdio'
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
+  gem "byebug"
 end
 
 group :doc do

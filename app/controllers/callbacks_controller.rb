@@ -7,7 +7,7 @@ class CallbacksController < ApplicationController
         #save the spotify token in the session
       when "rdio"
         #save the rdio token in the session
-        redirect_to "imports#show"
+        #redirect_to "imports#show"
     end
   end
 end
