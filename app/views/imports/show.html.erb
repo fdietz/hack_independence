@@ -1,0 +1,26 @@
+<div class="background-image" ng-app="importApp">
+  <div class="row" ng-controller="ImportCtrl">
+    <div class="large-12 columns">
+      <h1 class="canvas red">Import <%= @provider %></h1>
+
+      <div class="row">
+        <div class="large-12 columns">
+          <div class="canvas blue">
+            <h2>Importing 5/76 playlists</h2>
+            <progress max="100" value="{{progress}}">
+            </progress>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-12 columns">
+          <div class="canvas green fade-animation" ng-if="progress == 100">
+            <h2>Import done</h2>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

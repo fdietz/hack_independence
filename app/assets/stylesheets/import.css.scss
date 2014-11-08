@@ -1,0 +1,20 @@
+// Place all the styles related to the import controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "flexbox";
+
+.provider-box {
+  @include flexbox;
+  @include align-items(center);
+  @include justify-content(center);
+
+  border-radius: 8px;
+  background-color: rgba(0,0,0,0);
+
+  padding: 50px;
+
+  &:hover {
+    background-color: rgba(0,0,0,0.5);
+  }
+}
