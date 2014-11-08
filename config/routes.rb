@@ -6,6 +6,7 @@ HackIndependence::Application.routes.draw do
   root 'home#index'
 
   resources :imports
+  resources :exports
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

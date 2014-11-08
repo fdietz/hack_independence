@@ -1,1 +1,0 @@
-var importApp = angular.module("importApp", ["ngAnimate"]);

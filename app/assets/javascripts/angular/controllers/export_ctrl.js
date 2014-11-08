@@ -1,4 +1,4 @@
-app.controller("ImportCtrl", ["$scope", "$timeout", function($scope, $timeout) {
+app.controller("ExportCtrl", ["$scope", "$timeout", function($scope, $timeout) {
 
   $scope.progress = 0;
 

@@ -1,24 +1,24 @@
 <div class="background-image" ng-app="PlaylistApp">
-  <div class="row" ng-controller="ImportCtrl">
+  <div class="row" ng-controller="ExportCtrl">
     <div class="large-12 columns">
-      <h1 class="canvas red">Import from <%= @provider %></h1>
+      <h1 class="canvas red">Export to <%= @provider %></h1>
 
       <div class="row">
         <div class="large-12 columns">
           <div class="canvas blue">
             <div ng-if="progress != 100">
-              <h2>Importing 5/76 playlists</h2>
+              <h2>Exporting 5/76 playlists</h2>
               <progress max="100" value="{{progress}}">
               </progress>
             </div>
             <div class="fade-animation" ng-if="progress == 100">
-              <h2>Import 76 playlists successfully</h2>
-              <%= link_to "Start Exporting", export_path("rdio"), class: "button info large" %>
+              <h2>Exported 76 playlists successfully</h2>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>
+
+

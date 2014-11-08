@@ -16,9 +16,7 @@
 //= require angularjs/angular.js
 //= require angularjs/angular-animate.js
 
-//= require ./angular/import
+//= require ./angular/app
 //= require_tree ./angular/controllers
 
 // require_tree .
-
-// $(function(){ $(document).foundation(); });
