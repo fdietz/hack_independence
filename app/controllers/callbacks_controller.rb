@@ -5,7 +5,7 @@ class CallbacksController < ApplicationController
       when "spotify"
         p "Welcome back from spotify"
         #save the spotify token in the session
-      when "rdio_oauth2"
+      when "rdio"
         #save the rdio token in the session
         redirect_to "imports#show"
     end
