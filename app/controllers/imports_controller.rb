@@ -4,8 +4,8 @@ class ImportsController < ApplicationController
 
   def show
     # delete navigation helper
-    cookies.delete :spotify
-    cookies.delete :rdio
+    # cookies.delete :spotify
+    # cookies.delete :rdio
 
     #Token check
     p "*"*50
@@ -14,7 +14,7 @@ class ImportsController < ApplicationController
 
     #try to find some stuff via spotify
     p "~"*50
-    spotify_user = RSpotify::User.new(cookies[:spotify_token])
+    spotify_user = RSpotify::User.new(JSON.parse(cookies[:spotify_token]))
     p spotify_user.email
 
 
