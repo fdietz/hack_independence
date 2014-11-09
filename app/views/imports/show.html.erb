@@ -11,7 +11,7 @@
     <li class="current">Migrate your data</li>
   </ol>
 
-  <h1>Importing</h1>
+  <h1>Migrate your playlists</h1>
 
   <div class="row" ng-if="loading">
     <div class="large-12 columns">
@@ -64,9 +64,15 @@
     </div>
   </div>
 
+  <div class="row" class="animation-container fade-animation" ng-if="showImportAll">
+    <div class="large-12 columns">
+      {{currentPlaylist()}} - {{currentArtist()}} - {{currentSong()}}
+    </div>
+  </div>
+
   <div class="row more-info fade-animation" ng-if="showImportAll && importDone">
     <div class="large-12 columns">
-      <h2>Imported {{total}} playlists successfully!</h2>
+      <h2>Imported {{totalPlaylists}} playlists successfully!</h2>
     </div>
   </div>
 
