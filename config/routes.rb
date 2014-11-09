@@ -7,6 +7,8 @@ HackIndependence::Application.routes.draw do
 
   get '/auth/:provide/callback', to: 'callbacks#show'
 
+  get '/e404', to: 'error#error404'
+
   resources :imports
   resources :exports
   resources :callbacks
