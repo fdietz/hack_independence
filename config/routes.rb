@@ -9,6 +9,7 @@ HackIndependence::Application.routes.draw do
 
   resources :imports
   resources :exports
+  resources :callbacks
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

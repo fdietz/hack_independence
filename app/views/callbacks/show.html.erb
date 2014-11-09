@@ -8,20 +8,26 @@
 </pre>
 -->
 
-<p>Connect with different mystic music clouds...</p>
-<hr>
-<% if !@spotify %>
-  <p><%= link_to 'Sign in with Spotify', '/auth/spotify' %></p>
-<% else %>
-  <p>Spotify checked</p>
-<% end %>
-<hr>
-<% if !@rdio %>
-  <p><%= link_to 'Sign in with Rdio', '/auth/rdio' %></p>
-<% else %>
-  <p>Rdio checked</p>
-<% end %>
-<hr>
 <% if @spotify && @rdio %>
-  <p><%= link_to 'Seeing cute flying tapes', import_path(0) %></p>
+  <h1>Ooops. This shouldn't have happened!</h1>
+<% elsif @rdio %>
+  <h1>Connected with Rdio.</h1>
+<% elsif @spotify%>
+  <h1>Connected with Spotify.</h1>
 <% end %>
+
+<div class="row">
+  <div class="large-12 columns">
+
+    <% if @spotify && @rdio %>
+      <%= link_to 'Try again', '/', class: "button large alert round large-margin" %>
+    <% elsif @rdio %>
+      <h3>Now sign in to Spotify to free your music!</h3>
+      <%= link_to 'Sign in with Spotify', '/auth/spotify', class: "button large alert round large-margin" %>
+    <% elsif @spotify%>
+      <h3>Now sign in to Rdio to free your music!</h3>
+      <%= link_to 'Sign in with Rdio', '/auth/rdio', class: "button large alert round large-margin" %>
+    <% end %>
+
+  </div>
+</div>
