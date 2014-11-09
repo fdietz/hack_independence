@@ -113,11 +113,13 @@ app.controller("ImportCtrl", ["$scope", "$timeout", "$http", function($scope, $t
       console.log("nextPlaylist", $scope.progress, "total tracks", $scope.totalTracks);
       nextTrack();
     } else {
+      console.log("IMPORT DONE")
       $scope.importDone = true;
 
       $timeout(function() {
-        $(".progress-container").addClass("hide");
-      }, 1000);
+        // $(".progress-container").addClass("hide");
+        window.location.href = "http://localhost:3000/finals";
+      }, 2000);
     }
   }
 
