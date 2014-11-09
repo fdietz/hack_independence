@@ -1,24 +1,54 @@
-<div class="background-image" ng-app="PlaylistApp" ng-cloak>
-  <div class="row" ng-controller="ImportCtrl">
-    <div class="large-12 columns">
-      <h1 class="canvas red">Import from <%= @provider %></h1>
+<div ng-app="PlaylistApp" ng-controller="ImportCtrl" ng-cloak class="import-options">
 
-      <div class="row">
-        <div class="large-12 columns">
-          <div class="canvas blue">
-            <div ng-if="progress != 100">
-              <h2>Importing 5/76 playlists</h2>
-              <progress max="100" value="{{progress}}">
-              </progress>
-            </div>
-            <div class="fade-animation" ng-if="progress == 100">
-              <h2>Import 76 playlists successfully</h2>
-              <%= link_to "Start Exporting", export_path("rdio"), class: "button info large" %>
-            </div>
-          </div>
+  <h1>Importing</h1>
+
+  <div class="row">
+    <div class="large-12 columns">
+      <a class="button large alert round" ng-click="startImport()">
+        {{importAllButtonLabel()}}
+      </a>
+    </div>
+  </div>
+
+  <div class="row" class="fade-animation" ng-if="!showImportAll">
+    <div class="large-12 columns">
+      <a class="button large round" ng-click="showSelectPlaylist = true">Select playlists</a>
+    </div>
+  </div>
+
+  <div class="row" class="animation-container fade-animation" ng-if="showImportAll">
+    <div class="large-12 columns">
+      <div class="progress-container">
+
+        <div class="left" ng-if="progress == 0">
+          <%= image_tag("cassettes/spotify_with_left.PNG", width: 200) %>
         </div>
+
+        <div class="left" ng-if="progress > 0">
+          <%= image_tag("cassettes/spotify_empty_left.PNG", width: 200) %>
+        </div>
+
+        <div class="cursor">
+          <%= image_tag("cassettes/flying_cassette.png", width: 100) %>
+        </div>
+
+        <div class="right" ng-if="!importDone">
+          <%= image_tag("cassettes/rdio_empty_right.PNG", width: 200) %>
+        </div>
+
+        <div class="right" ng-if="importDone">
+          <%= image_tag("cassettes/rdio_with_right.PNG", width: 200) %>
+        </div>
+
       </div>
 
     </div>
   </div>
+
+  <div class="row more-info fade-animation" ng-if="showImportAll && importDone">
+    <div class="large-12 columns">
+      <h2>Imported {{total}} playlists successfully!</h2>
+    </div>
+  </div>
+
 </div>

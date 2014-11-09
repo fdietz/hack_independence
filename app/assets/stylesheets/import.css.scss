@@ -18,3 +18,60 @@
     background-color: rgba(0,0,0,0.5);
   }
 }
+
+.progress-container {
+  position: relative;
+  margin-top: 150px;
+
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  -ms-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+
+  opacity: 1;
+
+  .hide {
+    // height: 0;
+    opacity: 0;
+  }
+
+  .cursor {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    -ms-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+
+    transform: rotate(-10deg);
+  }
+}
+
+.import-options {
+  background-color: #fff;
+
+  .button {
+    width: 400px;
+  }
+}
+
+.animation-container {
+  height: 400px;
+}
+
+.selection-container {
+  margin-top: 50px;
+
+  .button {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+}
+
+.more-info {
+  margin-top: 25px;
+}
