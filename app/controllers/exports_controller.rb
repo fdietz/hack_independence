@@ -11,13 +11,13 @@ class ExportsController < ApplicationController
                             :access_secret => cookies[:rdio_oauth_token_secret])
     p rdio_api.currentUser
 
-    playlist = params[:playlist].with_indifferent_access
-    name = playlist[:name]
-    tracks = playlist[:tracks]
+    # playlist = params[:playlist].with_indifferent_access
+    name = params[:name]
+    tracks = params[:tracks]
 
     track_ids = []
     tracks.each do |track|
-      query_string = "#{track[:artist]}, #{track[:song]}"
+      query_string = "#{track[:artists]}, #{track[:name]}"
       puts "search for #{query_string}"
       search_result = rdio_api.search(query: query_string, types: "Track")
       # puts "result: #{search_result['results']}"

@@ -2,7 +2,19 @@ app.controller("ImportCtrl", ["$scope", "$timeout", "$http", function($scope, $t
 
   $scope.progress = 0;
 
-  $scope.total = 10;
+  $scope.loading = true;
+  function retrievePlaylist() {
+
+    $http({ method: "get", url: "/imports/spotify", headers: headers }).then(function(response) {
+      $scope.loading = false;
+      console.log("playlist get", response.data)
+
+      $scope.playlists = response.data;
+      $scope.total     = $scope.playlists.length;
+    });
+  }
+
+  retrievePlaylist();
 
   var height;
   var rotationDegree;
@@ -39,7 +51,8 @@ app.controller("ImportCtrl", ["$scope", "$timeout", "$http", function($scope, $t
 
       console.log("pos", $scope.progress, height, "degree", rotationDegree, rotateStr)
 
-      if ($scope.progress !== 10) {
+      if ($scope.progress !== $scope.total) {
+        $scope.createPlaylist($scope.playlists[$scope.progress])
         next();
       } else {
         $cursor.css({ transform: "rotate(" + 0 + "deg)" });
@@ -70,7 +83,12 @@ app.controller("ImportCtrl", ["$scope", "$timeout", "$http", function($scope, $t
 
   $scope.importAllButtonLabel = function() {
     if (!$scope.showImportAll) {
-      return "Import all";
+      if ($scope.loading) {
+        return "Loading playlists";
+      } else {
+        return "Import all " + $scope.total + " playlists";
+      }
+
     } else if ($scope.importDone) {
       return "I'm done!";
     } else {
