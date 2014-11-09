@@ -1,4 +1,5 @@
 @import "flexbox";
+@import "colors";
 
 ol.navigation {
   @include flexbox;
@@ -47,6 +48,13 @@ ol.navigation {
 
       color: white;
       background-color: silver;
+    }
+
+    &.current:before {
+      content: "";
+
+      color: white;
+      background-color: $blue;
     }
   }
 }
