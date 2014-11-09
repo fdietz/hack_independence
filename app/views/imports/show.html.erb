@@ -1,4 +1,4 @@
-<div ng-app="PlaylistApp" ng-controller="ImportCtrl" ng-cloak class="import-options">
+<div ng-app="PlaylistApp" ng-controller="ImportCtrl" ng-cloak class="import-options" ng-init="playlists = <%= raw @json %>">
 
   <ol class="navigation">
     <li class="done">Select Service</li>
@@ -19,7 +19,7 @@
 
   <div class="row" class="fade-animation" ng-if="!showImportAll">
     <div class="large-12 columns">
-      <a class="button large round" ng-click="showSelectPlaylist = true">Select playlists</a>
+      <a class="button large round" ng-click="createPlaylist()">Select playlists</a>
     </div>
   </div>
 

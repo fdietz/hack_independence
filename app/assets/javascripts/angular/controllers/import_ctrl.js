@@ -1,4 +1,4 @@
-app.controller("ImportCtrl", ["$scope", "$timeout", function($scope, $timeout) {
+app.controller("ImportCtrl", ["$scope", "$timeout", "$http", function($scope, $timeout, $http) {
 
   $scope.progress = 0;
 
@@ -78,4 +78,12 @@ app.controller("ImportCtrl", ["$scope", "$timeout", function($scope, $timeout) {
     }
   };
 
+  var playlist = { playlist: { name: "test", tracks: [ { artist: "Michael Jackson", song: "Bad" }] } };
+
+  var headers = { 'X-CSRF-Token': $("html").data("authenticity-token") };
+  $scope.createPlaylist = function(playlist) {
+    $http({ method: "post", url: "/exports", data: playlist, headers: headers }).then(function(response) {
+      console.log("playlist created", response.data)
+    });
+  }
 }]);

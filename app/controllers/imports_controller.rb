@@ -50,13 +50,16 @@ class ImportsController < ApplicationController
     p "RESULT --------"
 
     #try to find some stuff via rdio
-    p "RDIO ≈"
-    p cookies[:rdio_oauth_token].to_s
-    p cookies[:rdio_oauth_token_secret].to_s
-    rdio_user = RdioApi.new(:consumer_key => ENV["RDIO_CLIENT_ID"],
-                            :consumer_secret => ENV["RDIO_CLIENT_SECRET"],
-                            :access_token => cookies[:rdio_oauth_token],
-                            :access_secret => cookies[:rdio_oauth_token_secret])
-    p rdio_user.currentUser.to_s
+    # p "RDIO ≈"
+    # p cookies[:rdio_oauth_token].to_s
+    # p cookies[:rdio_oauth_token_secret].to_s
+    # rdio_api = RdioApi.new(:consumer_key => ENV["RDIO_CLIENT_ID"],
+    #                         :consumer_secret => ENV["RDIO_CLIENT_SECRET"],
+    #                         :access_token => cookies[:rdio_oauth_token],
+    #                         :access_secret => cookies[:rdio_oauth_token_secret])
+    # # p rdio_user.currentUser.to_s
+    # p "search for "
+    # search_result = rdio_api.search(query: "Michael Jackson, Bad", types: "Track")
+    # p search_result["results"].first["key"]
   end
 end
