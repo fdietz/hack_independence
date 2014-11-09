@@ -92,3 +92,32 @@ h2 {
   border-radius: 4px;
   padding: 20px;
 }
+
+.final-container {
+  position: relative;
+
+  .cassette {
+    position: absolute;
+    left: 450px;
+    top: 100px;
+  }
+
+  .facebook {
+    position: absolute;
+    left: 200px;
+    top: 240px;
+  }
+
+  .twitter {
+    position: absolute;
+    left: 290px;
+    top: 130px;
+  }
+
+  .pinterest {
+    position: absolute;
+    left: 420px;
+    top: 70px;
+  }
+
+}

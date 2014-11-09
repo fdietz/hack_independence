@@ -1,0 +1,24 @@
+<ol class="navigation">
+  <li class="done">Select Service</li>
+  <li class="done">Authorize Spotify</li>
+  <li class="done">Authorize Rdio</li>
+  <li class="done">Migrate your data</li>
+</ol>
+
+<div class="row">
+  <div class="large-12 columns">
+    <%= link_to "Enjoy your music on Rdio", "http://rdio.com#{@rdio_user.url}", class: "button large alert round" %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-12 columns final-container">
+    <%= image_tag("cassettes/help_your_friends.png", width: 400, class: "cassette") %>
+    <%= image_tag("social/facebook-sociocon.png", class: "facebook", width: 50) %>
+    <%= image_tag("social/pinterest-sociocon.png", class: "pinterest", width: 50) %>
+
+    <%= image_tag("social/twitter-sociocon.png", class: "twitter", width: 50) %>
+
+  </div>
+</div>
+

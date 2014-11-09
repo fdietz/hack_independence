@@ -12,6 +12,7 @@ HackIndependence::Application.routes.draw do
   resources :imports
   resources :exports
   resources :callbacks
+  resources :finals
 
   resource :tests
   # Example of regular route:
