@@ -33,6 +33,7 @@ gem 'foundation-rails'
 gem 'omniauth', '~> 1.2.2'
 gem 'rspotify'
 gem 'omniauth-rdio'
+gem 'rdio_api', git: "https://github.com/JoschkaSchulz/rdio_api.git"
 
 group :development do
   gem "better_errors"

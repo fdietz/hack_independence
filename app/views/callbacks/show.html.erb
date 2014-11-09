@@ -14,14 +14,12 @@
   <p><%= link_to 'Sign in with Spotify', '/auth/spotify' %></p>
 <% else %>
   <p>Spotify checked</p>
-  <p>Token: <%= @spotify_token %></p>
 <% end %>
 <hr>
 <% if !@rdio %>
   <p><%= link_to 'Sign in with Rdio', '/auth/rdio' %></p>
 <% else %>
   <p>Rdio checked</p>
-  <p>Token: <%= @rdio_token %></p>
 <% end %>
 <hr>
 <% if @spotify && @rdio %>

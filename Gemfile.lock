@@ -1,3 +1,14 @@
+GIT
+  remote: https://github.com/JoschkaSchulz/rdio_api.git
+  revision: d97923e0a2966e59070a36819b92ba05a95e4ad4
+  specs:
+    rdio_api (0.1.1)
+      faraday
+      faraday_middleware
+      hashie
+      multi_json
+      simple_oauth (~> 0.1.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -51,6 +62,8 @@ GEM
     execjs (2.2.2)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
+    faraday_middleware (0.9.1)
+      faraday (>= 0.7.4, < 0.10)
     foundation-rails (5.4.5.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
@@ -128,6 +141,7 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    simple_oauth (0.1.9)
     slop (3.6.0)
     sprockets (2.11.3)
       hike (~> 1.2)
@@ -166,6 +180,7 @@ DEPENDENCIES
   omniauth (~> 1.2.2)
   omniauth-rdio
   rails (= 4.0.2)
+  rdio_api!
   rspotify
   sass-rails (~> 4.0.0)
   sdoc
