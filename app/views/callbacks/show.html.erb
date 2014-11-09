@@ -10,11 +10,28 @@
 
 <ol class="navigation">
   <li class="done">Select Service</li>
-  <li class="todo">Authorize</li>
+  <% if @callback %>
+    <% if @spotify %>
+      <li class="done">Authorize Spotify</li>
+    <% else %>
+      <li class="todo">Authorize Spotify</li>
+    <% end %>
+
+    <% if @rdio %>
+      <li class="done">Authorize Rdio</li>
+    <% else %>
+      <li class="todo">Authorize Rdio</li>
+    <% end %>
+  <% else %>
+    <li class="todo">Authorize Spotify</li>
+    <li class="todo">Authorize Rdio</li>
+  <% end %>
+
   <li class="todo">Migrate your data</li>
 </ol>
 
-<% if @spotify && @rdio %>
+<% if @callback %>
+  <% if @spotify && @rdio %>
   <h1>Ooops. This shouldn't have happened!</h1>
 <% elsif @rdio %>
   <h1>Connected with Rdio.</h1>
@@ -37,3 +54,9 @@
 
   </div>
 </div>
+
+<% else %>
+  <h3>Let's authorize us to access your playlists on Spotify</h3>
+  <%= link_to 'Sign in with Spotify', '/auth/spotify', class: "button large alert round large-margin" %>
+<% end %>
+

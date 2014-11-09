@@ -3,7 +3,8 @@
 
     <ol class="navigation">
       <li class="todo">Select Service</li>
-      <li class="todo">Authorize</li>
+      <li class="todo">Authorize Spotify</li>
+      <li class="todo">Authorize Rdio</li>
       <li class="todo">Migrate your data</li>
     </ol>
 
@@ -13,13 +14,13 @@
 
       <div class="large-12 columns selection">
         <%= image_tag("cassettes/spotify_with_left.PNG", width: 200) %>
-        <%= link_to "From Spotify to Rdio", "/auth/spotify", class: "button large alert round" %>
+        <%= link_to "From Spotify to Rdio", callback_path("spotify"), class: "button large alert round" %>
         <%= image_tag("cassettes/rdio_empty_right.PNG", width: 200) %>
       </div>
 
       <div class="large-12 columns selection">
         <%= image_tag("cassettes/rdio_with_left.PNG", width: 200) %>
-        <%= link_to "From Rdio to Spotify", "/auth/rdio", class: "button large round" %>
+        <%= link_to "From Rdio to Spotify", "/callbacks", class: "button large round" %>
         <%= image_tag("cassettes/spotify_empty_right.PNG", width: 200) %>
       </div>
 
