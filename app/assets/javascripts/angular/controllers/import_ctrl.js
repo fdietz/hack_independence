@@ -19,54 +19,55 @@ app.controller("ImportCtrl", ["$scope", "$timeout", "$http", function($scope, $t
   var height;
   var rotationDegree;
 
+  function updateUI() {
+    var $cursor = $(".cursor");
+    var $left   = $(".left");
+    var $right  = $(".right");
+
+    var positionCursor = $cursor.offset();
+    var positionLeft   = $left.offset();
+    var positionRight  = $right.offset();
+
+    var stepSize       = (positionRight.left - positionLeft.left)/10;
+
+    var positionXWithMaxHeight = (positionRight.left - positionLeft.left)/2;
+
+    if ($scope.progress < $scope.total/2) {
+      height -= $scope.progress * 10;
+      rotationDegree += 2;
+    } else {
+      height += ($scope.progress-6) * 10;
+      rotationDegree += 2;
+    }
+
+    $cursor.show();
+    $cursor.css({ left: $scope.progress * stepSize, top: height });
+    var rotateStr = "rotate(" + rotationDegree + "deg)";
+    $cursor.css({ transform: rotateStr });
+
+    console.log("pos", $scope.progress, height, "degree", rotationDegree, rotateStr)
+  }
+
   function next() {
-    $timeout(function() {
-      console.log("next")
-      $scope.progress += 1;
+    console.log("next")
 
-      var $cursor = $(".cursor");
-      var $left   = $(".left");
-      var $right  = $(".right");
+    if ($scope.progress < $scope.total) {
+      $scope.createPlaylist($scope.playlists[$scope.progress]).then(function() {
+        $scope.progress += 1;
+        updateUI();
+        next();
+      });
+    } else {
+      $cursor.css({ transform: "rotate(" + 0 + "deg)" });
+      $cursor.hide();
 
-      var positionCursor = $cursor.offset();
-      var positionLeft   = $left.offset();
-      var positionRight  = $right.offset();
+      $scope.importDone = true;
 
-      var stepSize       = (positionRight.left - positionLeft.left)/10;
+      $timeout(function() {
+        $(".progress-container").addClass("hide");
+      }, 1000);
 
-      var positionXWithMaxHeight = (positionRight.left - positionLeft.left)/2;
-
-      if ($scope.progress < $scope.total/2) {
-        height -= $scope.progress * 10;
-        rotationDegree += 2;
-      } else {
-        height += ($scope.progress-6) * 10;
-        rotationDegree += 2;
-      }
-
-      $cursor.show();
-      $cursor.css({ left: $scope.progress * stepSize, top: height });
-      var rotateStr = "rotate(" + rotationDegree + "deg)";
-      $cursor.css({ transform: rotateStr });
-
-      console.log("pos", $scope.progress, height, "degree", rotationDegree, rotateStr)
-
-      if ($scope.progress !== $scope.total) {
-        $scope.createPlaylist($scope.playlists[$scope.progress]).then(function() {
-          next();
-        });
-      } else {
-        $cursor.css({ transform: "rotate(" + 0 + "deg)" });
-        $cursor.hide();
-
-        $scope.importDone = true;
-
-        $timeout(function() {
-          $(".progress-container").addClass("hide");
-        }, 1000);
-
-      }
-    }, 500);
+    }
   }
 
   $scope.startImport = function() {
