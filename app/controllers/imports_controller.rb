@@ -8,19 +8,25 @@ class ImportsController < ApplicationController
     # cookies.delete :rdio
 
     #Token check
-    p "*"*50
+    p "SPOTIFY TOKEN"
     p cookies[:spotify_token].to_s
-    p cookies[:rdio_token].to_s
+
+    p "RDIO TOKENS"
+    p cookies[:rdio_oauth_token].to_s
+    p cookies[:rdio_oauth_token_secret].to_s
 
     #try to find some stuff via spotify
-    p "~"*50
+    p "SPOTIFY USER~"
     spotify_user = RSpotify::User.new(JSON.parse(cookies[:spotify_token]))
     p spotify_user.email
+    p spotify_user.country
+    p spotify_user.product
 
 
     #try to find some stuff via rdio
-    p "≈"*50
-    p cookies[:rdio_token]
+    p "RDIO ≈"
+    p cookies[:rdio_oauth_token].to_s
+    p cookies[:rdio_oauth_token_secret].to_s
     #rdio_user = RdioApi.new(:consumer_key => CONSUMER_KEY, :consumer_secret => CONSUMER_SECRET)
   end
 end
