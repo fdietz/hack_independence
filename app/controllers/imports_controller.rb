@@ -27,6 +27,10 @@ class ImportsController < ApplicationController
     p "RDIO ≈"
     p cookies[:rdio_oauth_token].to_s
     p cookies[:rdio_oauth_token_secret].to_s
-    #rdio_user = RdioApi.new(:consumer_key => CONSUMER_KEY, :consumer_secret => CONSUMER_SECRET)
+    rdio_user = RdioApi.new(:consumer_key => ENV["RDIO_CLIENT_ID"],
+                            :consumer_secret => ENV["RDIO_CLIENT_SECRET"],
+                            :access_token => cookies[:rdio_oauth_token],
+                            :access_secret => cookies[:rdio_oauth_token_secret])
+    p rdio_user.currentUser.to_s
   end
 end
