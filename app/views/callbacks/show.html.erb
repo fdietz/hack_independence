@@ -1,9 +1,4 @@
 
-<div>TEST :D</div>
-
-<%= link_to 'Sign in with Rdio', '/auth/rdio' %>
-
-
 <!--
 <pre>
   <%= @usermail.inspect %>
@@ -12,3 +7,21 @@
   <%= @userplaylists.inspect %>
 </pre>
 -->
+
+<p>Connect with different mystic music clouds...</p>
+<hr>
+<% if !@spotify %>
+  <p><%= link_to 'Sign in with Spotify', '/auth/spotify' %></p>
+<% else %>
+  <p>Spotify checked</p>
+<% end %>
+<hr>
+<% if !@rdio %>
+  <p><%= link_to 'Sign in with Rdio', '/auth/rdio' %></p>
+<% else %>
+  <p>Rdio checked</p>
+<% end %>
+<hr>
+<% if @spotify && @rdio %>
+  <p><%= link_to 'Seeing cute flying tapes', import_path(0) %></p>
+<% end %>

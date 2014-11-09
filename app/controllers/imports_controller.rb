@@ -3,5 +3,7 @@ class ImportsController < ApplicationController
   end
 
   def show
+    cookies.delete :spotify
+    cookies.delete :rdio
   end
 end
