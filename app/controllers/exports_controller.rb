@@ -20,10 +20,15 @@ class ExportsController < ApplicationController
       query_string = "#{track[:artists]}, #{track[:name]}"
       puts "search for #{query_string}"
       search_result = rdio_api.search(query: query_string, types: "Track")
-      # puts "result: #{search_result['results']}"
-      puts "ID: #{search_result['results'].first['key']}"
+      # puts "result: #{search_result.inspect}"
 
-      track_ids << search_result["results"].first["key"]
+
+      if search_result.present? && search_result["results"].present? && search_result["results"].first.present? && search_result["results"].first["key"]
+        track_ids << search_result["results"].first["key"]
+        puts "TRACK ID FOUND: #{search_result['results'].first['key']}"
+      else
+        puts "SKIP TRACK: #{query_string}"
+      end
     end
 
     result = rdio_api.createPlaylist(:name => name, description: name, :tracks => track_ids.join(","))

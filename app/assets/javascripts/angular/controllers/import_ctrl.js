@@ -52,8 +52,9 @@ app.controller("ImportCtrl", ["$scope", "$timeout", "$http", function($scope, $t
       console.log("pos", $scope.progress, height, "degree", rotationDegree, rotateStr)
 
       if ($scope.progress !== $scope.total) {
-        $scope.createPlaylist($scope.playlists[$scope.progress])
-        next();
+        $scope.createPlaylist($scope.playlists[$scope.progress]).then(function() {
+          next();
+        });
       } else {
         $cursor.css({ transform: "rotate(" + 0 + "deg)" });
         $cursor.hide();
@@ -100,8 +101,6 @@ app.controller("ImportCtrl", ["$scope", "$timeout", "$http", function($scope, $t
 
   var headers = { 'X-CSRF-Token': $("html").data("authenticity-token") };
   $scope.createPlaylist = function(playlist) {
-    $http({ method: "post", url: "/exports", data: playlist, headers: headers }).then(function(response) {
-      console.log("playlist created", response.data)
-    });
+    return $http({ method: "post", url: "/exports", data: playlist, headers: headers });
   }
 }]);
