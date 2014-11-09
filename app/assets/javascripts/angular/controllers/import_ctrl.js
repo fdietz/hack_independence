@@ -93,7 +93,7 @@ app.controller("ImportCtrl", ["$scope", "$timeout", "$http", function($scope, $t
     } else if ($scope.importDone) {
       return "I'm done!";
     } else {
-      return "Importing...";
+      return "Importing " + $scope.progress + "/" + $scope.total + " ...";
     }
   };
 
